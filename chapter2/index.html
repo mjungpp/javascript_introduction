@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 그냥 script를 head에 포함하면, HTML을 Parsing해 HTML body 요소를 불러오기 전에 script의 main.js를 불러옴 -->
+    <script src="main.js"></script>
+    <!-- 브라우저가 HTML을 다운로드 받아서 parsing을 하다가 asyn을 만나면 병렬로 js 파일을 다운로드 받다가 js 파일 다운로드가 완료되면
+         그때 parsing하는 것을 멈추고 js 파일을 실행시키고 나머지 html을 parsing
+    자바스크립트가 html 파싱 되기도 전에 실행되기 때문에 js가 dom 요소를 조작할 수 없어짐-->
+    <script asyn src="main.js"></script>
+
+    <!-- parsing을 하다가 defer를 만나면 main.js를 다운받도록 명령을 실행시킨 후 html을 parsing하고 parsing이 끝난 후 다운로드 된 js파일을 실행  -->
+    <!-- 가장 좋은 옵션!!!!!! -->
+    <script defer src="main.js"></script>
+</head>
+<body>
+    API(Application Programming Interface)
+    : 브라우저가 제공하는, 브라우저가 이해할 수 있는 함수들
+
+    <!--  사용자가 html 파일을 빠르게 불러올 수 있게 되지만 사용자가 의미있는 컨텐츠를 보기 위해서는 자바스크립트를 이용해서 서버에 있는 데이터를 불러오거나
+    DOM을 꾸며주도록 동작한다면 사용자가 정상적인 페이지를 보기 전까지는 스크립트를 받아오는 시간, 실행하는 시간을 기다려야함.-->
+    <script src=""></script>
+</body>
+</html>
