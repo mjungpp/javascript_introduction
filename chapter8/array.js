@@ -140,14 +140,16 @@ let pop = fruits.pop();
 console.log(pop); // 🍓
 // console.clear();
 
-console.log(fruits);
-console.log(vegetable);
+console.log(fruits); // ["🍅", "🥝", "🍇", "🍒", "🍓"]
+console.log(vegetable); // ["🥕", "🧅"]
 
 let join = fruits.join(vegetable);
-console.log(join);
+console.log('join : ', join);
+// 🍅🥕,🧅🥝🥕,🧅🍇🥕,🧅🍒🥕,🧅🍓
 
 let reverse = fruits.reverse();
 console.log(reverse);
+// ["🍓", "🍒", "🍇", "🥝", "🍅"]
 
 // console.clear();
 
@@ -160,6 +162,7 @@ let check = array.every(item => {
     return item % 2 == 0;
 });
 console.log(check);
+// false
 
 let some = array.some(item => {
     return item % 2 == 0;
@@ -172,11 +175,23 @@ console.log(newArray);
 let filterArray = array.filter(x => x > 3);
 console.log(filterArray);
 
-let reducer = (accumulator, currentValue) => accumulator+ currentValue;
-
+let reducer = (accumulator, currentValue) => {
+    return accumulator + currentValue;
+}
 // 1 + 2 + 3 + 4 + 5
-console.log(array.reduce(reducer));
-console.log(array.reduce(reducer, 5));
+console.log(array.reduce(reducer)); // 15
+console.log(array.reduce(reducer, 5)); // 20
+console.clear();
 
 const array3 = [[4,3], [2,7], [1,0]].reduceRight((accumulator, currentValue) => accumulator.concat(currentValue));
-console.log(array3);
+console.log(array3); // [1, 0, 2, 7, 4, 3]
+
+// const array3 = [[4,3], [2,7], [1,0]];
+// let reducer2 = (accumulator, currentValue) => {
+//     console.log('accumulator : ', accumulator);
+//     console.log('currentValue : ', currentValue);
+//     console.log(accumulator.concat(currentValue));
+//     return accumulator.concat(currentValue);
+// }
+// array3.reduceRight(reducer2);
+

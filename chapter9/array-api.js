@@ -1,8 +1,9 @@
 // Q1. make a string out of an array
 {
   const fruits = ["apple", "banana", "orange"];
-  const result = fruits.join(",");
+  const result = fruits.join(", ");
   console.log(result);
+  // apple,banana,orange
 }
 
 // Q2. make an array out of a string
@@ -10,22 +11,28 @@
   const fruits = "🍎, 🥝, 🍌, 🍒";
   const result = fruits.split(",");
   console.log(result);
+  // ["🍎", " 🥝", " 🍌", " 🍒"]
 }
 
 // Q3. make this array look like this: [5, 4, 3, 2, 1]
 {
   const array = [1, 2, 3, 4, 5];
   const result = array.reverse();
-  console.log(result);
   console.log(array);
+  // [5, 4, 3, 2, 1]
+  console.log(result);
+  // [5, 4, 3, 2, 1]
 }
 
 // Q4. make new array without the first two elements
 {
   const array = [1, 2, 3, 4, 5];
   const result = array.slice(2, 5);
-  console.log(result);
+  // 2번째 인덱스부터 5번째 전 인덱스까지 잘라내서 새로운 배열을 만듦
   console.log(array);
+  // [1, 2, 3, 4, 5]
+  console.log(result);
+  // [3, 4, 5]
 }
 
 class Student {
@@ -48,12 +55,16 @@ const students = [
 {
   const result = students.find((student) => student.score === 90);
   console.log(result);
+  // Student {name: "C", age: 30, enrolled: true, score: 90}
 }
 
 // Q6. make an array of enrolled students
 {
   const result = students.filter((student) => student.enrolled);
   console.log(result);
+  // {name: "A", age: 29, enrolled: true, score: 45}
+  // {name: "C", age: 30, enrolled: true, score: 90}
+  // {name: "E", age: 18, enrolled: true, score: 88}
 }
 
 // Q7. make an array containing only the students' scores
@@ -61,30 +72,33 @@ const students = [
 {
   const result = students.map((student) => student.score);
   console.log(result);
+  // [45, 80, 90, 66, 88]
 }
 
 // Q8. check if there is a student with the score lower than 50
 {
-  console.clear();
+  // console.clear();
   const result = students.some((student) => student.score < 50);
-  console.log(result);
+  console.log(result); // true
 
   const result2 = !students.every((student) => student.score >= 50);
-  console.log(result2);
+  console.log(result2); // true
 }
 console.clear();
 // Q9. compute students' average score
 {
-  const result = students.reduce((prev, curr) => prev.score + curr.score);
-  console.log(result / students.length);
+  const result = students.reduce((prev, curr) => prev + curr.score, 0);
+  console.log(result / students.length); // 73.8
 }
 
 // Q10. make a string containing all the scores
 // result should be: '45, 80, 90, 66, 88'
 {
   const result = students
+    // map을 이용하면 새로운 배열이 return
     .map((student) => student.score)
-    .filter((score) => score >= 50)
+    // 만약 점수가 50점 이상인 값만 출력하고 싶다면
+    // .filter((score) => score >= 50)
     .join();
   console.log(result);
 }
@@ -94,7 +108,9 @@ console.clear();
 {
   const result = students
     .map((student) => student.score)
-    .sort((a, b) => b - a)
+    .sort((a, b) => a - b)
+    // .sort((a, b) => b - a) : 내림차순
     .join();
   console.log(result);
+  // 45,66,80,88,90
 }

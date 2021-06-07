@@ -1,9 +1,12 @@
 'use strict';
 
 // 1. 동기와 비동기
-// Javascript is synchronous (자바스크립트는 동기적) <-> asynchronous(비동기) : 언제 코드가 수행될 지 알 수 없는 것
-// Execute the code block by orger after hoisting (호이스팅이 된 이후부터 코드가 우리가 작성한 순서에 맞춰 하나씩 동기적으로 실행됨)
-// hoisting : var, function declartion과 같은 선언들이 가장 위로 끌어올려지는것, 호이스팅이 된 이후부터 코드가 나타난 순서로 자동적으로 실행
+// Javascript is synchronous (자바스크립트는 동기적)
+// <-> asynchronous(비동기) : 언제 코드가 수행될 지 알 수 없는 것
+// Execute the code block by orger after hoisting
+// - 호이스팅이 된 이후부터 코드가 우리가 작성한 순서에 맞춰 하나씩 동기적으로 실행됨
+// hoisting : var, function declartion과 같은 선언들이 가장 위로 끌어올려지는것,
+// 호이스팅이 된 이후부터 코드가 나타난 순서로 자동적으로 실행
 console.log('1');
 // setTimeout() : 지정한 시간이 지나면 콜백함수(전달한 함수를 나중에 부르는 것)를 호출하는 것
 setTimeout(() => console.log('2'), 1000); // 1000 :1초
@@ -46,14 +49,16 @@ hello
 async callback
 */
 // 자바스크립트의 실행순서
-// 1. 함수의 선언이 가장 위로 끌어올려짐(hoisting) : function printImmediately, function printWithDelay
+// 1. 함수의 선언이 가장 위로 끌어올려짐(hoisting)
+// -> function printImmediately, function printWithDelay
 // 2. console.log('1'); 동기
 // 3. setTimeout(() => console.log('2'), 1000); // 1000 :1초 (비동기)
 // 4. console.log('3'); 비동기
 // 5. 함수 호출 printImmediately(() => console.log('hello')); 
 // 6. 함수 호출 printWithDelay(() => console.log('async callback'), 2000); 비동기
 
-// callback은 유용하게 쓰일 때도 있지만, callback을 계~~속 묶어나가게 되면 callback을 부르고 부르고 부르고 부르게 되면
+// callback은 유용하게 쓰일 때도 있지만,
+// callback을 계~~속 묶어나가게 되면 callback을 부르고 부르고 부르고 부르게 되면
 // callback hell!🔥🔥 발생!!! ㅠㅠㅠㅠ
 
 // callback hell example

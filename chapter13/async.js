@@ -19,11 +19,11 @@ async function fetchUser(){
 }
 
 const user = fetchUser();
-user.then(console.log);
-console.log(user);
+user.then(console.log); // Promise
+console.log(user); // ellie
 
 // 2. await✨
-
+// async가 붙은 함수 안에서만 사용 가능
 function delay(ms){
     // 정해진 ms가 지나면 resolve를 호출하는 promise를 리턴
     return new Promise(resolve => setTimeout(resolve, ms));
@@ -40,10 +40,13 @@ async function getBanana(){
     return '🍌';
 }
 
+/*
+getBanana를 async, await이 아닌 promise 형식으로 쓰면
 function getBanana() {
     return delay(1000)
     .then(() => '🍌');
 }
+*/
 
 /*
 콜백지옥!
@@ -54,6 +57,8 @@ function pickFruits() {
         .then(banana => `${apple} + ${banana}`);
     });
 }
+pickFruits().then(console.log);
+// 🍎 + 🍌
 */
 async function pickFruits() {
     const applePromise = getApple();
@@ -63,17 +68,18 @@ async function pickFruits() {
     return `${apple} + ${banana}`;
 }
 
-pickFruits().then(console.log);
+pickFruits().then(console.log); // 🍎 + 🍌
 
 // 3. Useful Promise APIs
+// Promise.all
 function pickAllFruits(){
     // 모든 promise를 병렬적으로 받을 때까지 모아줌
     return Promise.all([getApple(), getBanana()])
     .then(fruits => fruits.join(' + '));
 }
-pickAllFruits().then(console.log);
+pickAllFruits().then(console.log); // 🍎 + 🍌
 
 function pickOnlyOne() {
     return Promise.race([getApple(), getBanana()]);
 }
-pickOnlyOne().then(console.log);
+pickOnlyOne().then(console.log); // 🍌

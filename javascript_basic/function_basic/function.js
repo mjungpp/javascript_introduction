@@ -5,6 +5,7 @@
 // 1. 함수 선언
 // 2. 함수 호출
 
+// 1. 함수 선언
                     // 전달받을 인자
 function doSomething(add) {
     console.log('do something 실행됨'); // do something 실행됨
@@ -17,14 +18,14 @@ function doSomething(add) {
     */
     const result = add(2, 3);
     console.log(`result : ${result}`); // result : 5
-} // 함수 선언
+}
 
 function add(a, b) {
     const sum = a + b; // a + b의 값을 sum에 할당
     return sum;
 }
 
-// 함수 호출
+// 2. 함수 호출
 doSomething(add); // doSomething의 인자로 add 함수 자체를 전달
 
 const addFun = add;

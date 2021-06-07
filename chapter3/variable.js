@@ -148,7 +148,8 @@ ellie.age = 21;
 
 // 3. Constant
 // 한번 할당하면 값이 절대로 바뀌지 않음
-// 변수를 이용하면 메모리 어딘가에 할당된 박스를 가리키고 있어서 포인터로 값을 계속 바꿔 나갈 수 있었으나
+// 변수를 이용하면 메모리 어딘가에 할당된 박스를 가리키고 있어서 포인터로 값을
+// 계속 바꿔 나갈 수 있었으나
 // const는 값을 가리키는 포인터가 잠겨있다. 값을 선언하고 할당하면 값을 절대로 바꿀 수 없음
 // 값을 계속 변경할 수 있는 타입을 Mutable data type --> let
 // 값이 한번 선언되면 변경할 수 없는 것 Immutable data type --> const
@@ -160,6 +161,7 @@ ellie.age = 21;
 
 // note!
 // Immutable data types : premitive types, frozen object(i.e. object.freeze())
-// let name = 'ellie'를 할당하면, name에 새로운 값을 할당할 수는 있지만 ellie의 세번짜 글자만 바꾸던지 하는 방법은 X
+// let name = 'ellie'를 할당하면, name에 새로운 값을 할당할 수는 있지만 
+// ellie의 세번짜 글자만 바꾸던지 하는 방법은 X
 // Mutable data types : all objects by default are mutable in JS
 

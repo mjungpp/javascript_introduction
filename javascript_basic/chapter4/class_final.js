@@ -18,7 +18,9 @@ coolCounter.increase(); // 1
 coolCounter.increase(); // 2
 coolCounter.increase(); // 3
 coolCounter.increase(); // 4
-coolCounter.increase(); // 5
+coolCounter.increase(); 
+// 5
+    yo!😎
 */
 
 /*
@@ -47,12 +49,14 @@ coolCounter.increase(printSomething); // 2
 coolCounter.increase(printSomething); // 3
 coolCounter.increase(printSomething); // 4
 coolCounter.increase(printSomething); // 5
+// yo!😎 5
 
 coolCounter.increase(printSomething); // 6
 coolCounter.increase(printSomething); // 7
 coolCounter.increase(printSomething); // 8
 coolCounter.increase(printSomething); // 9
 coolCounter.increase(printSomething); // 10
+// yo!😎 10
 
 // 콜백 함수로 바꿨을 때의 장점
 // -> 함수 안에 내부 동작을 자유롭게 변형할 수 있음
@@ -86,10 +90,6 @@ function printSomething(num) {
     console.log(`yo!😎 ${num}`);
 }
 
-function alertNum(num) {
-    alert(`alert!😎 ${num}`);
-}
-
 // counter를 만들때 생성자에 원하는 callback 함수를 전달
 // const coolCounter = new Counter(printSomething);
 // const coolCounter = new Counter(alert);
@@ -104,14 +104,16 @@ undefined를 호출할 수 없으므로, error가 됨
 const printCounter = new Counter(printSomething);
 // const alertCounter = new Counter(alertNum);
 
-coolCounter.increase(); // 1
-coolCounter.increase(); // 2
-coolCounter.increase(); // 3
-coolCounter.increase(); // 4
-coolCounter.increase(); // 5
+printCounter.increase(); // 1
+printCounter.increase(); // 2
+printCounter.increase(); // 3
+printCounter.increase(); // 4
+printCounter.increase(); // 5
+// yo!😎 5
 
-coolCounter.increase(); // 6
-coolCounter.increase(); // 7
-coolCounter.increase(); // 8
-coolCounter.increase(); // 9
-coolCounter.increase(); // 10
+printCounter.increase(); // 6
+printCounter.increase(); // 7
+printCounter.increase(); // 8
+printCounter.increase(); // 9
+printCounter.increase(); // 10
+// yo!😎 10

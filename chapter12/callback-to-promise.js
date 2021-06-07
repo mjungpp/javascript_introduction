@@ -1,4 +1,4 @@
-// 5. callback hell을 promise를 이용헤 예쁘게 작성해보기~
+// 5. callback hell을 promise를 이용해서 예쁘게 작성해보기~
 
 // 수행 순서
 // 1. 사용자에게 id와 password를 입력받음

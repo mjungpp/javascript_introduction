@@ -29,7 +29,8 @@ object : 클래스의 인스턴스
 
 Javascript classes
 - ES6에서 도입됨 (ES6 이전에는 클래스 없이 객체를 만들었음)
-- 완전히 새롭게, 완벽하게 추가된 것이 아니라 기존에 존재하던 프로토 타입을 기반으로 문법만 클래스가 추가된 것(Syntatical sugar)
+- 완전히 새롭게, 완벽하게 추가된 것이 아니라 기존에 존재하던 프로토 타입을
+ 기반으로 문법만 클래스가 추가된 것(Syntatical sugar)
 */
 
 
@@ -59,7 +60,8 @@ ellie.speak(); // ellie : hello!
 
 // 2. Getter & Setter
 // const user1 = new User('Steve', 'Job', -1); 
-// console.log(user1.age); // -1 : 엥? 나이가 -1 말도 안돼, 제한을 주고 싶어 -> 이때 사용하는 것이 ⭐Getter/Setter⭐
+// console.log(user1.age); // -1 : 엥? 나이가 -1 말도 안돼, 제한을 주고 싶어
+// -> 이때 사용하는 것이 ⭐Getter/Setter⭐
 
 class User {
 // 1. class내에 getter와 setter가 정의되어있다면, 정의되어있는 프로퍼티에 한해서 작용함 
@@ -74,38 +76,41 @@ class User {
     get age(){
         return this._age; 
     }
-    // 값을 설정
+// 값을 설정
 
-    // 4. 
-    /*set age()가 다음과 같이 정의되어 있었을 때
-        set age(value){
-        this.age = value;
-        set age가 처음에 호출 -> function body를 execute할 때, this.age = value; 여기서 "this.age = " 는 다시 set age(value)를 호출 ->
-        다시 호출된 set age에서 "this.age = "는 또 다시 set age(value)를 호출하고.. infinite recursion이 되서 callstack overflow 에러가 발생
-        // Maximum call stack size exceeded
-        그래서 나온 방법이 private property convention을 이용,
-        getter와 setter 안에 따로 age를 다른 이름으로 사용하자고 해서 _age로 define
-        }
-    */
+// 4. 
+/*set age()가 다음과 같이 정의되어 있었을 때
+    set age(value){
+    this.age = value;
+    set age가 처음에 호출 -> function body를 execute할 때, 
+    this.age = value; 여기서 "this.age = " 는 다시 set age(value)를 호출 ->
+    다시 호출된 set age에서 "this.age = "는 또 다시 set age(value)를 호출하고.. 
+    infinite recursion이 되서 callstack overflow 에러가 발생
+    // Maximum call stack size exceeded
+    그래서 나온 방법이 private property convention을 이용,
+    getter와 setter 안에 따로 age를 다른 이름으로 사용하자고 해서 _age로 define
+    }
+*/
     set age(value) {
-        /* 5. 다음과 같이 this.age를 -> this._age로 변경했을 경우,
-        constructor에서 this.age = age; 이 실행될때 "this.age = "는 set age()를 호출
-        set age()의 body에서 age가 아니라 _age 라는 또 다른 이름의 변수에 저장 
-        여기서 _age는 setter가 define되어있지 않기 때문에 바로 메모리에 _age의 값을 저장
+    /* 5. 다음과 같이 this.age를 -> this._age로 변경했을 경우,
+    constructor에서 this.age = age; 이 실행될때 "this.age = "는 set age()를 호출
+    set age()의 body에서 age가 아니라 _age 라는 또 다른 이름의 변수에 저장 
+    여기서 _age는 setter가 define되어있지 않기 때문에 바로 메모리에 _age의 값을 저장
 
-        실제로는 _age라는 변수가 저장된 것
-        const user1 = new User('Java', 'Script', 10);
-        console.log(user1.age);
-        console.log(user1._age);
-        하면 둘다 같은 10이 나옵니다.
+    실제로는 _age라는 변수가 저장된 것
+    const user1 = new User('Java', 'Script', 10);
+    console.log(user1.age);
+    console.log(user1._age);
+    하면 둘다 같은 10이 나옵니다.
 
-        실제로는 age가 아니라 _age에 저장되었는데 왜 user1.age 도 10이 나오냐? 
-        -> 자동으로 getter를 호출하기 때문에 getter에서 우리가 _age 값을 return하기로 정의를 바꾸어 주었기 때문에 user1.age 도 10을 리턴
+    실제로는 age가 아니라 _age에 저장되었는데 왜 user1.age 도 10이 나오냐? 
+    -> 자동으로 getter를 호출하기 때문에 getter에서 우리가 _age 값을 return하기로
+    정의를 바꾸어 주었기 때문에 user1.age 도 10을 리턴
 
-        그래서 사실상 깊이 들어가서 메모리 레벨까지 보게되면 age는 실제로 undefined이고 _age 가 -1
-        하지만 외부 코드가 user1의  object를 access 할때는 age가 아니라  _age로 re-direct되기 때문에
-        high level에서 볼때 user1.age이 문제없이 -1로 작용하게 됨. 외부에는 불필요한 정보를 숨기는 것이고 이것이 바로 encapsulation
-        */
+    그래서 사실상 깊이 들어가서 메모리 레벨까지 보게되면 age는 실제로 undefined이고 _age 가 -1
+    하지만 외부 코드가 user1의  object를 access 할때는 age가 아니라  _age로 re-direct되기 때문에
+    high level에서 볼때 user1.age이 문제없이 -1로 작용하게 됨. 외부에는 불필요한 정보를 숨기는 것이고 이것이 바로 encapsulation
+    */
         this._age = value < 0 ? 0 : value;
     }
 }

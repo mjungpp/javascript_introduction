@@ -1,32 +1,24 @@
 
 // async & await를 이용해 하단 코드 바꿔보기
 class UserStorage {
-    // 함수 1
-    loginUser(id, password){
-        return new Promise((resolve, reject) => {
-            setTimeout(() => {
-                if(
-                    (id === 'ellie' && password == 'dream') ||
-                    (id === 'coder' && password == 'academy')
-                ) {
-                    resolve(id);
-                }else {
-                    reject(new Error('not found'));
-                }
-            }, 2000);
-        });
+
+    async loginUser(id, password){
+        if(
+            (id === 'ellie' && password === 'dream') ||
+            (id === 'coder' && password === 'academy')
+        ){
+            return id;
+        }else {
+            throw 'error : id or password not found!';
+        }
     }
-    // 함수2
-    getRoles(user){
-        return new Promise((resolve, reject) => {
-            setTimeout(() => {
-                if(user === 'ellie'){
-                    resolve({name : 'ellie', role : 'admin'});
-                }else {
-                    reject(new Error('no access'));
-                }
-            }, 1000);
-        });
+
+    async getRoles(user){
+       if(user === 'ellie'){
+           return ({name : 'ellie', role : 'admin'});
+       }else {
+           throw 'error : no access';
+       }
     }
 }
 
@@ -34,26 +26,6 @@ const userStorage = new UserStorage();
 const id = prompt('enter your id');
 const password = prompt('enter your password');
 userStorage.loginUser(id, password)
-// .then(user => userStorage.getRoles)
 .then(userStorage.getRoles)
 .then(user => alert(`Hello ${user.name}, you have a ${user.role} role`))
 .catch(console.log);
-/*
-class UserStorage {
-    async function loginuser(id, password){
-        return new Promise(resolve => setTimeout(resolve, reject){
-            if(
-                    (id === 'ellie' && password == 'dream') ||
-                    (id === 'coder' && password == 'academy')
-                ) {
-                    resolve(id);
-                }else {
-                    reject(new Error('not found'));
-            }
-        }, 2000)
-    }
-    async function getRoles(user){
-
-    }
-}
-*/
