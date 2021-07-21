@@ -1,4 +1,4 @@
-<h2 align="center"><em>Frontend_introduction 📌</em></h2>
+<h2 align="center"><em>Javascript_introduction 📌</em></h2>
 
 ```
 해당 레파지토리는 Youtube 채널 드림코딩 by 엘리님의 자바스크립트 기초 강의를 수강하고 학습한 내용을
