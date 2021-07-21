@@ -1,8 +1,7 @@
 <h2 align="center"><em>Javascript_introduction 📌</em></h2>
 
 ```
-해당 레파지토리는 Youtube 채널 드림코딩 by 엘리님의 자바스크립트 기초 강의를 수강하고 학습한 내용을
-정리한 코드입니다. 해당 강의를 통해 Javascript에 대한 기본 지식을 익혔습니다.
+해당 레파지토리는 Youtube 채널 드림코딩 by 엘리님의 자바스크립트 기초 강의를 수강하고 학습한 내용을 정리한 코드입니다.
 ```
 <br/>
 
